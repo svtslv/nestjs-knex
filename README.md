@@ -46,24 +46,24 @@ export class AppModule {}
 
 ```ts
 import { Controller, Get, } from '@nestjs/common';
-import { InjectConnection, Connection } from 'nestjs-knex';
+import { InjectKnex, Knex } from 'nestjs-knex';
 
 @Controller()
 export class AppController {
   constructor(
-    @InjectConnection() private readonly connection: Connection,
+    @InjectKnex() private readonly knex: Knex,
   ) {}
 
   @Get()
   async getHello() {
-    if (!await this.connection.schema.hasTable('users')) {
-      await this.connection.schema.createTable('users', table => {
+    if (!await this.knex.schema.hasTable('users')) {
+      await this.knex.schema.createTable('users', table => {
         table.increments('id').primary();
         table.string('name');
       });
     }
-    await this.connection.table('users').insert({ name: 'Name' });
-    const users = await this.connection.table('users');
+    await this.knex.table('users').insert({ name: 'Name' });
+    const users = await this.knex.table('users');
     return { users };
   }
 }

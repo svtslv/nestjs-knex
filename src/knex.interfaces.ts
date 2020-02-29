@@ -1,12 +1,12 @@
 import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
-import * as Knex from 'knex';
+import * as knex from 'knex';
 
 export interface KnexModuleOptions {
-  config: Knex.Config;
+  config: knex.Config;
 }
 
 export interface KnexModuleOptionsFactory {
-  createS3ModuleOptions(): Promise<KnexModuleOptions> | KnexModuleOptions;
+  createKnexModuleOptions(): Promise<KnexModuleOptions> | KnexModuleOptions;
 }
 
 export interface KnexModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
@@ -16,4 +16,4 @@ export interface KnexModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> 
   useFactory?: (...args: any[]) => Promise<KnexModuleOptions> | KnexModuleOptions;
 }
 
-export type Connection = Knex;
+export type Knex = knex;

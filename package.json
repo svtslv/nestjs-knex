@@ -1,6 +1,6 @@
 {
   "name": "nestjs-knex",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Nest - modern, fast, powerful node.js web framework (@knex)",
   "author": "Sviatoslav H",
   "license": "MIT",

@@ -1,2 +1,3 @@
-export const KNEX_MODULE_OPTIONS = Symbol('KnexModuleOptions');
-export const KNEX_MODULE_TOKEN = Symbol('KnexModuleToken');
+export const KNEX_MODULE_CONNECTION = 'default';
+export const KNEX_MODULE_CONNECTION_TOKEN = 'KnexModuleConnectionToken';
+export const KNEX_MODULE_OPTIONS_TOKEN = 'KnexModuleOptionsToken';
