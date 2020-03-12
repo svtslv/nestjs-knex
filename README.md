@@ -24,6 +24,8 @@ npm install nestjs-knex knex
 npm install nestjs-knex knex sqlite3
 ```
 
+### RedisModule.forRoot(options, connection?)
+
 ```ts
 import { Module } from '@nestjs/common';
 import { KnexModule } from 'nestjs-knex';
@@ -36,13 +38,39 @@ import { AppController } from './app.controller';
         client: "sqlite3",
         useNullAsDefault: true,
         connection: ':memory:',
-      }
+      },
     }),
   ],
   controllers: [AppController],
 })
 export class AppModule {}
 ```
+
+### KnexModule.forRootAsync(options, connection?)
+
+```ts
+import { Module } from '@nestjs/common';
+import { KnexModule } from 'nestjs-knex';
+import { AppController } from './app.controller';
+
+@Module({
+  imports: [
+    KnexModule.forRootAsync({
+      useFactory: () => ({
+        config: {
+          client: "sqlite3",
+          useNullAsDefault: true,
+          connection: ':memory:',
+        },
+      }),
+    }),
+  ],
+  KnexModule: [AppController],
+})
+export class AppModule {}
+```
+
+### InjectKnex(connection?)
 
 ```ts
 import { Controller, Get, } from '@nestjs/common';

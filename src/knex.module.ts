@@ -1,38 +1,22 @@
-import { Module, DynamicModule, Provider } from "@nestjs/common";
-import { KnexModuleOptions, KnexModuleAsyncOptions } from './knex.interfaces';
-import { createKnexConnection, getKnexOptionsToken, getKnexConnectionToken } from './knex.utils'
+import { DynamicModule, Module } from '@nestjs/common';
+import { KnexCoreModule } from './knex.core-module';
+import { KnexModuleAsyncOptions, KnexModuleOptions } from './knex.interfaces';
 
 @Module({})
 export class KnexModule {
-  static forRoot(options: KnexModuleOptions, connection?: string): DynamicModule {
-
-    const knexModuleOptions: Provider = {
-      provide: getKnexOptionsToken(connection),
-      useValue: options,
-    };
-
-    const knexConnectionProvider: Provider = {
-      provide: getKnexConnectionToken(connection),
-      useValue: createKnexConnection(options),
-    };
-
+  public static forRoot(options: KnexModuleOptions, connection?: string): DynamicModule {
     return {
       module: KnexModule,
-      providers: [
-        knexModuleOptions,
-        knexConnectionProvider,
-      ],
-      exports: [
-        knexModuleOptions,
-        knexConnectionProvider,
-      ],
+      imports: [KnexCoreModule.forRoot(options, connection)],
+      exports: [KnexCoreModule],
     };
   }
 
-  static forRootAsync(options: KnexModuleAsyncOptions, connection?: string): DynamicModule {
+  public static forRootAsync(options: KnexModuleAsyncOptions, connection?: string): DynamicModule {
     return {
       module: KnexModule,
-      imports: [KnexModule.forRootAsync(options, connection)],
+      imports: [KnexCoreModule.forRootAsync(options, connection)],
+      exports: [KnexCoreModule],
     };
   }
 }
