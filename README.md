@@ -24,7 +24,7 @@ npm install nestjs-knex knex
 npm install nestjs-knex knex sqlite3
 ```
 
-### RedisModule.forRoot(options, connection?)
+### KnexModule.forRoot(options, connection?)
 
 ```ts
 import { Module } from '@nestjs/common';
