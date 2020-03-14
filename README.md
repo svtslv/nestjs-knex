@@ -65,7 +65,7 @@ import { AppController } from './app.controller';
       }),
     }),
   ],
-  KnexModule: [AppController],
+  controllers: [AppController],
 })
 export class AppModule {}
 ```
