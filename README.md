@@ -19,6 +19,12 @@ Integrates Knex with Nest
 npm install nestjs-knex knex
 ```
 
+You can also use the interactive CLI
+
+```sh
+npx nestjs-modules
+```
+
 ## Examples
 ```bash
 npm install nestjs-knex knex sqlite3
