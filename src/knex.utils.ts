@@ -1,5 +1,5 @@
 import { KnexModuleOptions } from "./knex.interfaces";
-import * as Knex from 'knex';
+import Knex from 'knex';
 import {
   KNEX_MODULE_CONNECTION,
   KNEX_MODULE_CONNECTION_TOKEN,
