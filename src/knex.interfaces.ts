@@ -1,11 +1,11 @@
 import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
 import * as knex from 'knex';
 
-export type Knex = knex;
+export type Knex = typeof knex;
 export type Connection = Knex;
 
 export interface KnexModuleOptions {
-  config: knex.Config;
+  config: knex.Knex.Config;
 }
 
 export interface KnexModuleOptionsFactory {
