@@ -1,5 +1,6 @@
 import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
-import * as knex from 'knex';
+// import * as knex from 'knex';
+import { Knex as knex } from 'knex';
 
 export type Knex = knex;
 export type Connection = Knex;
