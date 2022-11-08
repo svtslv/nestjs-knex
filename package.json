@@ -40,7 +40,7 @@
     "knex": ">=0.95.4"
   },
   "devDependencies": {
-    "@nestjs/common": "^7.6.15",
+    "@nestjs/common": "^9.2.0",
     "@nestjs/core": "^7.6.15",
     "@nestjs/testing": "^7.6.15",
     "@types/jest": "^26.0.22",
