@@ -16,7 +16,7 @@ export function getKnexConnectionToken(connection: string): string {
   }_${KNEX_MODULE_CONNECTION_TOKEN}`;
 }
 
-export function createKnexConnection(options: KnexModuleOptions): any {
+export function createKnexConnection(options: KnexModuleOptions) {
   const { config } = options;
   return knex(config);
 }
